@@ -12,9 +12,14 @@ public class Somar {
 	 */
 	
 	public static void main(String[] args) {
+		if(args.length == 1 && args[0].equals("--versão")) {
+			System.out.println("Programa Soma (c) 2019. Versão 0.0.2");
+			return;
+		}
+			
 		
-		verificarNumeroDeParametros(args);		
 		try {			
+			verificarNumeroDeParametros(args);
 			int a = Integer.parseInt(args[0]);
 			int b = Integer.parseInt(args[1]);
 			System.out.println(somar(a,b));			
