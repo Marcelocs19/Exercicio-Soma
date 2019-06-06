@@ -12,11 +12,26 @@ public class Somar {
 	 */
 	
 	public static void main(String[] args) {
-				
-		int a = Integer.parseInt(args[0]);
-		int b = Integer.parseInt(args[1]);
-		System.out.println(somar(a,b));
 		
+		verificarNumeroDeParametros(args);		
+		try {			
+			int a = Integer.parseInt(args[0]);
+			int b = Integer.parseInt(args[1]);
+			System.out.println(somar(a,b));			
+		} catch (NumberFormatException e) {			
+			System.err.println("Valor inválido!");
+			return;			
+		}catch (IllegalArgumentException e) {			
+			System.err.println("Número incorreto de argumentos!");
+			return;			
+		}		
+				
+	}
+
+	static void verificarNumeroDeParametros(String[] args) {
+		if(args.length != 2) {
+			throw new IllegalArgumentException();
+		}
 	}
 
 	/**
